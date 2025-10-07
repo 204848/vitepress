@@ -33,7 +33,7 @@ export default defineConfig({
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '首页', link: '/' },
-      { text: '简介', link: '/小幻想/开始' }
+      { text: '简介', link: '/小幻想/简介' }
     ],
 
     sidebar: generateSidebar({
