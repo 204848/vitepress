@@ -16,7 +16,7 @@ export default defineConfig({
     }
   },
   head: [
-    ['link',{ rel: 'icon', href: '/logo.jpg'}],
+    ['link',{ rel: 'icon', href: '/logo.png'}],
   ],
   lang: 'zh-CN',
   cleanUrls:true,
