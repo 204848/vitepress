@@ -21,7 +21,7 @@ export default defineConfig({
   lang: 'zh-CN',
   cleanUrls:true,
   lastUpdated: true,
-  base: '/vitepress',
+  base: '/vitepress/',
   title: "3216的奇妙幻想站",
   description: "一个3216的秘密(秘密吗?)小基地，记载一些小东西(主要是一个幻想)，然后可能也有别的q(≧▽≦q)~~~",
   themeConfig: {
