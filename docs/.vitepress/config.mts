@@ -15,6 +15,9 @@ export default defineConfig({
       }
     }
   },
+  head: [
+    ['link',{ rel: 'icon', href: '/logo.png'}],
+  ],
   lang: 'zh-CN',
   cleanUrls:true,
   lastUpdated: true,
@@ -49,7 +52,7 @@ export default defineConfig({
     ],
 
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+      { icon: 'github', link: 'https://github.com/204848/vitepress' }
     ],
 
     darkModeSwitchLabel: '深浅模式',
