@@ -9,10 +9,10 @@ hero:
   actions:
     - theme: brand
       text: 简介
-      link: /introduction
+      link: /小幻想/开始
     - theme: alt
       text: 开始
-      link: /begin
+      link: /小幻想/简介
 
 features:
   - title: 这是什么?🤔
