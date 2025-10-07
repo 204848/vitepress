@@ -16,7 +16,7 @@ export default defineConfig({
     }
   },
   head: [
-    ['link',{ rel: 'icon', href: './logo.png'}],
+    ['link',{ rel: 'icon', href: '/vitepress/logo.png'}],
   ],
   lang: 'zh-CN',
   cleanUrls:true,
