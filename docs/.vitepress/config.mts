@@ -53,8 +53,8 @@ export default defineConfig({
       // underscoreToSpace: true,
       // capitalizeFirst: false,
       // capitalizeEachWords: false,
-      collapsed: false, //折叠组关闭
-      collapseDepth: 2, //折叠组2级菜单
+      collapsed: true, //折叠组关闭
+      collapseDepth: 3, //折叠组3级菜单
       // sortMenusByName: false,
       // sortMenusByFrontmatterOrder: false,
       // sortMenusByFrontmatterDate: false,
