@@ -54,7 +54,7 @@ export default defineConfig({
       // capitalizeFirst: false,
       // capitalizeEachWords: false,
       collapsed: true, //折叠组关闭
-      collapseDepth: 3, //折叠组3级菜单
+      collapseDepth: 4, //折叠组4级菜单
       // sortMenusByName: false,
       // sortMenusByFrontmatterOrder: false,
       // sortMenusByFrontmatterDate: false,
