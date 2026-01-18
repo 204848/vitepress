@@ -1,7 +1,7 @@
 // node_modules/@giscus/vue/dist/giscus-aTimukGI.mjs
 var H = globalThis;
 var q = H.ShadowRoot && (H.ShadyCSS === void 0 || H.ShadyCSS.nativeShadow) && "adoptedStyleSheets" in Document.prototype && "replace" in CSSStyleSheet.prototype;
-var K = Symbol();
+var K = /* @__PURE__ */ Symbol();
 var J = /* @__PURE__ */ new WeakMap();
 var ot = class {
   constructor(t, e, s) {
@@ -85,7 +85,7 @@ var L = { toAttribute(i, t) {
 } };
 var Y = (i, t) => !gt(i, t);
 var Z = { attribute: true, type: String, converter: L, reflect: false, hasChanged: Y };
-Symbol.metadata ?? (Symbol.metadata = Symbol("metadata")), A.litPropertyMetadata ?? (A.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
+Symbol.metadata ?? (Symbol.metadata = /* @__PURE__ */ Symbol("metadata")), A.litPropertyMetadata ?? (A.litPropertyMetadata = /* @__PURE__ */ new WeakMap());
 var E = class extends HTMLElement {
   static addInitializer(t) {
     this._$Ei(), (this.l ?? (this.l = [])).push(t);
@@ -95,7 +95,7 @@ var E = class extends HTMLElement {
   }
   static createProperty(t, e = Z) {
     if (e.state && (e.attribute = false), this._$Ei(), this.elementProperties.set(t, e), !e.noAccessor) {
-      const s = Symbol(), r = this.getPropertyDescriptor(t, s, e);
+      const s = /* @__PURE__ */ Symbol(), r = this.getPropertyDescriptor(t, s, e);
       r !== void 0 && ft(this.prototype, t, r);
     }
   }
@@ -322,8 +322,8 @@ var it = /"/g;
 var lt = /^(?:script|style|textarea|title)$/i;
 var Ct = (i) => (t, ...e) => ({ _$litType$: i, strings: t, values: e });
 var wt = Ct(1);
-var b = Symbol.for("lit-noChange");
-var l = Symbol.for("lit-nothing");
+var b = /* @__PURE__ */ Symbol.for("lit-noChange");
+var l = /* @__PURE__ */ Symbol.for("lit-nothing");
 var rt = /* @__PURE__ */ new WeakMap();
 var S = v.createTreeWalker(v, 129);
 function dt(i, t) {
@@ -997,23 +997,4 @@ p = $([
 export {
   p as GiscusWidget
 };
-/*! Bundled license information:
-
-@giscus/vue/dist/giscus-aTimukGI.mjs:
-  (**
-   * @license
-   * Copyright 2019 Google LLC
-   * SPDX-License-Identifier: BSD-3-Clause
-   *)
-  (**
-   * @license
-   * Copyright 2017 Google LLC
-   * SPDX-License-Identifier: BSD-3-Clause
-   *)
-  (**
-   * @license
-   * Copyright 2020 Google LLC
-   * SPDX-License-Identifier: BSD-3-Clause
-   *)
-*/
-//# sourceMappingURL=giscus-aTimukGI-KUYRML7I.js.map
+//# sourceMappingURL=giscus-aTimukGI-GW7ZCY2P.js.map

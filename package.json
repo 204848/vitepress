@@ -1,8 +1,8 @@
 {
   "devDependencies": {
     "@types/dom-view-transitions": "^1.0.6",
-    "vitepress": "^2.0.0-alpha.12",
-    "vitepress-sidebar": "^1.33.0"
+    "vitepress": "^2.0.0-alpha.15",
+    "vitepress-sidebar": "^1.33.1"
   },
   "scripts": {
     "docs:dev": "vitepress dev docs",
@@ -12,6 +12,6 @@
   "dependencies": {
     "medium-zoom": "^1.1.0",
     "vitepress-plugin-comment-with-giscus": "^1.1.15",
-    "vue": "^3.5.22"
+    "vue": "^3.5.26"
   }
 }
