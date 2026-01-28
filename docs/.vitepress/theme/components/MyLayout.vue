@@ -1,8 +1,7 @@
-<!-- .vitepress/theme/MyLayout.vue -->
 <script setup lang="ts">
 import DefaultTheme from 'vitepress/theme'
-// 组件1
 import backtotop from "./backtotop.vue";
+import ImageViewer from "./ImageViewer.vue";
 import { useData } from 'vitepress'
 import { nextTick, provide } from 'vue'
 
@@ -26,61 +25,52 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
     )}px at ${x}px ${y}px)`
   ]
 
-  await document.startViewTransition(async () => {
+  const transition = document.startViewTransition(async () => {
     isDark.value = !isDark.value
     await nextTick()
-  }).ready
+  })
 
-  document.documentElement.animate(
-    { clipPath: isDark.value ? clipPath.reverse() : clipPath },
-    {
-      duration: 300,
-      easing: 'ease-in',
-      pseudoElement: `::view-transition-${isDark.value ? 'old' : 'new'}(root)`
-    }
-  )
+  transition.ready.then(() => {
+    // 修复切换逻辑：变黑裁切新层，变白裁切旧层，100% 触发且不回弹
+    const isReverse = !isDark.value
+    document.documentElement.animate(
+      { clipPath: isDark.value ? clipPath : [...clipPath].reverse() },
+      {
+        duration: 400,
+        easing: 'ease-in-out',
+        pseudoElement: isDark.value ? '::view-transition-new(root)' : '::view-transition-old(root)'
+      }
+    )
+  })
 })
 </script>
 
 <template>
   <DefaultTheme.Layout v-bind="$attrs">
-
-    <!-- doc-footer-before插槽 -->
+    <template #layout-bottom>
+      <ImageViewer />
+    </template>
     <template #doc-footer-before>
       <backtotop />
     </template>
-
   </DefaultTheme.Layout>
 </template>
 
 <style>
+/* 视图过渡核心配置 */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
 
-::view-transition-old(root),
-.dark::view-transition-new(root) {
-  z-index: 1;
-}
+/* 锁定层级，解决回弹闪烁的关键 */
+::view-transition-old(root) { z-index: 9999; }
+::view-transition-new(root) { z-index: 1; }
+.dark::view-transition-old(root) { z-index: 1; }
+.dark::view-transition-new(root) { z-index: 9999; }
 
-::view-transition-new(root),
-.dark::view-transition-old(root) {
-  z-index: 9999;
-}
-
-/* 恢复原始开关按钮 */
-/* .VPSwitchAppearance {
-  width: 22px !important;
-} */
-
-.VPSwitchAppearance .check {
-  transform: none !important;
-}
-
-/* 修正因视图过渡导致的按钮图标偏移 */
-.VPSwitchAppearance .check .icon {
-  top: -2px;
-}
+/* 修正 VitePress 默认切换按钮 */
+.VPSwitchAppearance .check { transform: none !important; }
+.VPSwitchAppearance .check .icon { top: -2px; }
 </style>
