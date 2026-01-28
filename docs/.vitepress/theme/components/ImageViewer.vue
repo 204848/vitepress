@@ -1,12 +1,18 @@
 <script setup lang="ts">
 import { onMounted, watch, nextTick } from 'vue'
 import { useRoute } from 'vitepress'
-import { Fancybox } from "@fancyapps/ui"
+// 注意：不要在顶部同步 import { Fancybox }，否则 build 依然会报错
 import "@fancyapps/ui/dist/fancybox/fancybox.css"
 
 const route = useRoute()
 
-const initFancybox = () => {
+const initFancybox = async () => {
+  // 仅在浏览器环境下执行
+  if (typeof window === 'undefined') return
+
+  // 动态导入 Fancybox
+  const { Fancybox } = await import("@fancyapps/ui")
+
   // 销毁已有实例，防止重复绑定
   Fancybox.unbind('.vp-doc img')
   Fancybox.close()
@@ -26,25 +32,28 @@ const initFancybox = () => {
         right: ["iterateZoom", "close"],
       },
     },
-  } as any) // 关键点：这里加上 as any 绕过复杂的类型匹配
+  } as any)
 }
 
-onMounted(() => initFancybox())
+onMounted(() => {
+  initFancybox()
+})
 
 watch(
   () => route.path,
   () => {
+    // 路由变化后，等待 DOM 更新再初始化
     nextTick(() => initFancybox())
   }
 )
 </script>
 
 <template>
-  <div style="display: none"></div>
+  <div class="image-viewer-container" style="display: none"></div>
 </template>
 
 <style>
-/* 保持之前的样式不变 */
+/* 保持你原来的样式不变 */
 .fancybox__backdrop {
   background: rgba(var(--image-zoom-bg, 255, 255, 255), 0.7) !important;
   backdrop-filter: blur(12px) saturate(180%);
